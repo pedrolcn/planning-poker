@@ -1,6 +1,7 @@
 ##
 # The controller for the planning poker rooms
 class RoomsControler < ApplicationController
+  before_action :authenticate_user, only: [:create, :show]
 
   ##
   # Lists all planning poker active rooms
@@ -16,11 +17,13 @@ class RoomsControler < ApplicationController
   ##
   # Endpoint for creating a new game room and saving it to the DB
   def create
+    @room = Room.create(room_params)
   end
 
   ##
   # Handles creating a new game room
   def new
+    @room = Room.new
   end
 
   ##
@@ -44,5 +47,6 @@ class RoomsControler < ApplicationController
   end
 
   def rooms_params
+    params.require(:room).permit(:topic, :user_id)
   end
 end
