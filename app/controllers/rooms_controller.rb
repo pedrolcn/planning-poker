@@ -1,12 +1,12 @@
 ##
 # The controller for the planning poker rooms
-class RoomsControler < ApplicationController
+class RoomsController < ApplicationController
   before_action :authenticate_user, only: [:create, :show]
 
   ##
   # Lists all planning poker active rooms
   def index
-    @rooms = Rooms.all
+    @rooms = Room.all
   end
 
   ##

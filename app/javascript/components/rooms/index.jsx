@@ -8,7 +8,7 @@ export default class RoomsIndex extends React.Component {
   }
 
   renderRooms () {
-    if (this.props.rooms) {
+    if (this.props.rooms.length > 0) {
       return (
         this.props.rooms.map((each) => 
           <p>{each.topic}</p>

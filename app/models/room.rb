@@ -1,5 +1,5 @@
 class Room < ApplicationRecord
   belongs_to :user
 
-  validates presence [:topic, :user_id]
+  validates_presence_of [:topic, :user_id]
 end
