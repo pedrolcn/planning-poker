@@ -20,3 +20,22 @@
   margin: 5px;
   padding: 1px 0 1px 4px;
 }
+
+.cards-container{
+  display: flex;
+  position: absolute;
+  bottom: 5px;
+  
+  .card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px black;
+    background-color: rgba(0,0,255,0.7);
+    border-radius: 4px;
+    margin: 0 5px;
+    height: 100px;
+    width: 75px;
+  }
+}
+

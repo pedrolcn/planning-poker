@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Form, Button} from 'semantic-ui-react'
+import { Form, Button, Container} from 'semantic-ui-react'
 import Navbar from './components/navbar';
 
 export default class New extends React.Component {
@@ -34,8 +34,13 @@ export default class New extends React.Component {
   render () {
     return (
       <Fragment>
-        {this.renderErrors()}
-        {this.renderForm()}
+        <Navbar
+          homePath={this.props.homePath}
+        />
+        <Container style={{paddingTop: '45px'}}>
+          {this.renderErrors()}
+          {this.renderForm()}
+        </Container>
       </Fragment>
     );
   }

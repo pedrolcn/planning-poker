@@ -13,7 +13,7 @@ export default class RoomsIndex extends React.Component {
       this.props.rooms.map((each, idx) => 
         <Table.Row key={idx}>
           <Table.Cell>{each.id}</Table.Cell>
-          <Table.Cell>{each.title}</Table.Cell>
+          <Table.Cell><a href={this.props.roomsPath[idx]}>{each.title}</a></Table.Cell>
         </Table.Row>
       )
     );
@@ -23,6 +23,7 @@ export default class RoomsIndex extends React.Component {
     return (
       <Fragment>
         <Navbar
+          homePath={this.props.homePath}
           newRoomPath={this.props.newRoomPath}
         />
           <h1 style={{paddingTop: '40px'}}>Rooms Index</h1>

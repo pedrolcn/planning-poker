@@ -2,12 +2,14 @@
 # The controller for the planning poker rooms
 class RoomsController < ApplicationController
   before_action :authenticate_user, only: [:create, :show, :new]
+  before_action :set_room, only: [:show]
 
   ##
   # Lists all planning poker active rooms
   def index
     @new_room_path = new_room_path
     @rooms = Room.all
+    @rooms_path = @rooms.map {|r| room_path(r)}
   end
 
   ##
@@ -52,6 +54,7 @@ class RoomsController < ApplicationController
   private
 
   def set_room
+    @room = Room.find(params[:id])
   end
 
   def room_params

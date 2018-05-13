@@ -6,25 +6,36 @@ export default class Navbar extends Component {
     super(props);
   }
 
+  renderCreateRoomButton() {
+    if (this.props.newRoomPath) {
+      return (
+        <Menu.Menu position='right'>
+            <a href={this.props.newRoomPath}>
+              <Menu.Item>
+                Create New Room
+              </Menu.Item>
+            </a>
+        </Menu.Menu>
+      );
+    }
+  }
+
   render() {
     return (
         <Sidebar as={Menu} direction='top' visible={true} inverted>
           <Menu.Menu>
-            <Menu.Item name='home'>
-              <Icon name='home' />
-              Home
-            </Menu.Item>
+            <a href={this.props.homePath}>
+              <Menu.Item name='home'>
+                <Icon name='home' />
+                Home
+              </Menu.Item>
+            </a>
             <Menu.Item name='gamepad'>
               <Icon name='gamepad' />
               Games
             </Menu.Item>
           </Menu.Menu>
-
-          <Menu.Menu position='right'>
-            <Menu.Item>
-              <a href={this.props.newRoomPath}>Create New Room</a>
-            </Menu.Item>
-          </Menu.Menu>
+          {this.renderCreateRoomButton()}
         </Sidebar>
     )
   }
