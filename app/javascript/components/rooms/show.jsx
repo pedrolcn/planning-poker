@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import Navbar from './components/navbar';
-import PokerCards from './components/poker_cards';
+import CardCollection from './components/card_colletcion';
 import { Container, Header} from 'semantic-ui-react';
 
 export default class ClassName extends React.Component {
@@ -17,7 +17,7 @@ export default class ClassName extends React.Component {
         />
         <Container style={{paddingTop: '45px'}}>
           <Header as='h1'>{this.props.room.title}</Header>
-          <PokerCards />
+          <CardCollection />
         </Container>
       </Fragment>
     );

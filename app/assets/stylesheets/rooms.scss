@@ -36,6 +36,17 @@
     margin: 0 5px;
     height: 100px;
     width: 75px;
+    transition: all ease-in-out 0.2s; 
+    cursor: pointer;
+    
+
+    &:hover:not(.active) {
+      transform: translateY(-5%)
+    }
+
+    &.active {
+      transform: translateY(-10%)
+    }
   }
 }
 

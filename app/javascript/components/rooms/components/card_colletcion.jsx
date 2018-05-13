@@ -1,23 +1,32 @@
 import React from 'react';
+import PokerCard from './poker_card';
 
-export default class PokerCards extends React.Component {
+export default class CardCollection extends React.Component {
   constructor (props) {
     super (props);
     
     this.state = {
-      selected: undefined
+      selected: null
     };
 
     if (!this.props.cardValues) {
       this.values = ['0', '1', '3', '5', '8', '13', '21', 'inf', '?']
     }
+
+    this.handleSelect = this.handleSelect.bind(this);
+  }
+
+  handleSelect(selection) {
+    this.setState({selected: selection});
   }
 
   renderCards() {
     return this.values.map((each, idx) =>
-      <div className='card' key={idx}>
-        {each}
-      </div>
+      <PokerCard
+        value={each}
+        key={idx}
+        handleSelect={this.handleSelect}
+      />
     )
   }
 
