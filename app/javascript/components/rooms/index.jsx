@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Fragment }from 'react';
 import { Container } from 'semantic-ui-react';
+import Navbar from './components/navbar'
 
 export default class RoomsIndex extends React.Component {
   constructor (props) {
@@ -10,8 +11,8 @@ export default class RoomsIndex extends React.Component {
   renderRooms () {
     if (this.props.rooms.length > 0) {
       return (
-        this.props.rooms.map((each) => 
-          <p>{each.title}</p>
+        this.props.rooms.map((each, idx) => 
+          <p key={idx}>{each.title}</p>
         )
       );
     } else {
@@ -23,9 +24,13 @@ export default class RoomsIndex extends React.Component {
 
   render () {
     return (
-      <Container>
-        {this.renderRooms()}
-      </Container>
+      <Fragment>
+        <Navbar />
+        <Container style={{paddingTop: '40px'}}>
+          <h1>Rooms Index</h1>
+          {this.renderRooms()}
+        </Container>
+      </Fragment>
     );
   }
 }
