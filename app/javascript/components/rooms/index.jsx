@@ -11,7 +11,7 @@ export default class RoomsIndex extends React.Component {
     if (this.props.rooms.length > 0) {
       return (
         this.props.rooms.map((each) => 
-          <p>{each.topic}</p>
+          <p>{each.title}</p>
         )
       );
     } else {
