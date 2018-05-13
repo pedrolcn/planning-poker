@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Installation instructions
 
-Things you may want to cover:
+run at the project root  
+~ $ bundle install && yarn install  
+~ $ rake db:create && rake db:migrate && rake db:seed
 
-* Ruby version
+If you don't have the gem 'foreman' installed, do it by running:  
+~ $ gem install 'foreman'
 
-* System dependencies
+## Usage instructions
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+start the dev server by running the following command at the project root directory  
+~ $ foreman start

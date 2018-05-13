@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+usr = User.create(username: 'root', token: SecureRandom.hex(32))
+Room.create(title: 'test_room', user_id: usr.id)
