@@ -1,5 +1,5 @@
 import React, { Fragment }from 'react';
-import { Container } from 'semantic-ui-react';
+import { Container, Table } from 'semantic-ui-react';
 import Navbar from './components/navbar'
 
 export default class RoomsIndex extends React.Component {
@@ -9,27 +9,34 @@ export default class RoomsIndex extends React.Component {
   }
 
   renderRooms () {
-    if (this.props.rooms.length > 0) {
-      return (
-        this.props.rooms.map((each, idx) => 
-          <p key={idx}>{each.title}</p>
-        )
-      );
-    } else {
-      return (
-        <p> There are no rooms to show, why don't you create one </p>
-      );
-    }
+    return (
+      this.props.rooms.map((each, idx) => 
+        <Table.Row key={idx}>
+          <Table.Cell>{each.id}</Table.Cell>
+          <Table.Cell>{each.title}</Table.Cell>
+        </Table.Row>
+      )
+    );
   }
 
   render () {
     return (
       <Fragment>
-        <Navbar />
-        <Container style={{paddingTop: '40px'}}>
-          <h1>Rooms Index</h1>
-          {this.renderRooms()}
-        </Container>
+        <Navbar
+          newRoomPath={this.props.newRoomPath}
+        />
+          <h1 style={{paddingTop: '40px'}}>Rooms Index</h1>
+          <Table singleLine>
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell>#</Table.HeaderCell>
+                <Table.HeaderCell>Title</Table.HeaderCell>
+              </Table.Row>
+            </Table.Header>
+            <Table.Body>
+              {this.renderRooms()}
+            </Table.Body>
+          </Table>
       </Fragment>
     );
   }

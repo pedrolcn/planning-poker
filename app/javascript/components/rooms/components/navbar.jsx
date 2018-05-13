@@ -22,7 +22,7 @@ export default class Navbar extends Component {
 
           <Menu.Menu position='right'>
             <Menu.Item>
-              <a href='#'>Create New Room</a>
+              <a href={this.props.newRoomPath}>Create New Room</a>
             </Menu.Item>
           </Menu.Menu>
         </Sidebar>

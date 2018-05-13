@@ -1,0 +1,74 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Rails Dev",
+      "type": "Ruby",
+      "request": "launch",
+      "cwd": "${workspaceRoot}",
+      "program": "${workspaceRoot}/bin/rails",
+      "args": [
+        "server",
+        "-b0.0.0.0",
+        "-p 3000",
+        "-edevelopment"
+      ],
+    },
+    {
+      "name": "Rails Prod",
+      "type": "Ruby",
+      "request": "launch",
+      "cwd": "${workspaceRoot}",
+      "program": "${workspaceRoot}/bin/rails",
+      "args": [
+        "server",
+        "-b0.0.0.0",
+        "-eproduction"
+      ],
+      "pathToRDebugIDE": "/Users/jmbrito/.rvm/gems/ruby-2.3.5/bin/rdebug-ide",
+    },
+    {
+      "name": "Listen for rdebug-ide",
+      "type": "Ruby",
+      "request": "attach",
+      "cwd": "${workspaceRoot}",
+      "remoteHost": "127.0.0.1",
+      "remotePort": "1234",
+      "remoteWorkspaceRoot": "${workspaceRoot}"
+    },
+    {
+      "name": "RSpec - all",
+      "type": "Ruby",
+      "request": "launch",
+      "cwd": "${workspaceRoot}",
+      "program": "/Users/jmbrito/.rvm/gems/ruby-2.3.5/bin/rspec",
+      "args": [
+        "-I",
+        "${workspaceRoot}"
+      ]
+    },
+    {
+      "name": "RSpec - active spec file only",
+      "type": "Ruby",
+      "request": "launch",
+      "cwd": "${workspaceRoot}",
+      "program": "${workspaceRoot}/bin/bundle",
+      "args": [
+        "exec",
+        "rspec",
+        "-I",
+        "${workspaceRoot}",
+        "${file}"
+      ]
+    },
+    {
+      "name": "Rake db:migrate",
+      "type": "Ruby",
+      "request": "launch",
+      "cwd": "${workspaceRoot}",
+      "program": "${workspaceRoot}/bin/rake",
+      "useBundler": true,
+      "args": ["db:migrate"]
+    }
+  ]
+}

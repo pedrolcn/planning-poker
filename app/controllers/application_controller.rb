@@ -4,12 +4,12 @@ class ApplicationController < ActionController::Base
   ##
   # Handles user authentication
   def authenticate_user
-    token = cookies.encrpyted[:_ppoker_token]
+    token = cookies.encrypted[:_ppoker_token]
 
     unless token.present?
       hash = SecureRandom.hex(32)
 
-      cookies.encrypted[_ppoker_token] = {
+      cookies.encrypted[:_ppoker_token] = {
         value: hash,
         expires: Time.now + 6.months
       }
